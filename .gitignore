@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller / Build Artifacts
+build/
+dist/
+*.exe
+*.dll
+*.pyd
+*.so
+*.dylib
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Arduino / PlatformIO
+*.hex
+*.bin
+*.elf
+.pio/
+.pioenvs/
+
+# OS Generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & temporary files
+*.log
