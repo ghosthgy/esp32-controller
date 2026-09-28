@@ -361,7 +361,7 @@ class ADBControllerApp(ctk.CTk):
 
         k_row2 = ctk.CTkFrame(pads_holder, fg_color="transparent")
         k_row2.pack(fill="x", padx=8, pady=(2, 6))
-        k_row2.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6), weight=1)
+        k_row2.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7), weight=1)
 
         btn_k_up = ctk.CTkButton(
             k_row2, text="⬆ 键盘-上", height=28, font=FONT_SMALL,
@@ -398,19 +398,26 @@ class ADBControllerApp(ctk.CTk):
         )
         btn_k_enter.grid(row=0, column=4, padx=2, sticky="ew")
 
+        btn_k_space = ctk.CTkButton(
+            k_row2, text="␣ 空格", height=28, font=FONT_BOLD,
+            fg_color=("#475569", "#334155"), hover_color=("#334155", "#1e293b"),
+            command=lambda: self._send_keyboard_key("SPACE")
+        )
+        btn_k_space.grid(row=0, column=5, padx=2, sticky="ew")
+
         btn_k_tab = ctk.CTkButton(
             k_row2, text="⇥ Tab", height=28, font=FONT_SMALL,
             fg_color=("#475569", "#334155"), hover_color=("#334155", "#1e293b"),
             command=lambda: self._send_keyboard_key("TAB")
         )
-        btn_k_tab.grid(row=0, column=5, padx=2, sticky="ew")
+        btn_k_tab.grid(row=0, column=6, padx=2, sticky="ew")
 
         btn_k_esc = ctk.CTkButton(
             k_row2, text="⎋ 返回/ESC", height=28, font=FONT_SMALL,
             fg_color=("#475569", "#334155"), hover_color=("#334155", "#1e293b"),
             command=lambda: self._send_keyboard_key("ESC")
         )
-        btn_k_esc.grid(row=0, column=6, padx=2, sticky="ew")
+        btn_k_esc.grid(row=0, column=7, padx=2, sticky="ew")
 
         # ---------------- 2. 右侧：脚本编辑器与执行控制 ----------------
         right_box = ctk.CTkFrame(parent, corner_radius=10)
@@ -426,7 +433,7 @@ class ADBControllerApp(ctk.CTk):
 
         p_row1 = ctk.CTkFrame(preset_box, fg_color="transparent")
         p_row1.pack(fill="x", pady=2)
-        p_row1.grid_columnconfigure((0, 1, 2, 3), weight=1)
+        p_row1.grid_columnconfigure((0, 1, 2, 3, 4), weight=1)
 
         btn_p_click = ctk.CTkButton(
             p_row1, text="🔘 鼠标单击", font=FONT_REGULAR, height=28,
@@ -451,6 +458,12 @@ class ADBControllerApp(ctk.CTk):
             command=lambda: self._insert_preset("KEY_ENTER")
         )
         btn_p_k_enter.grid(row=0, column=3, padx=2, sticky="ew")
+
+        btn_p_k_space = ctk.CTkButton(
+            p_row1, text="␣ 键盘-空格", font=FONT_REGULAR, height=28,
+            command=lambda: self._insert_preset("KEY_SPACE")
+        )
+        btn_p_k_space.grid(row=0, column=4, padx=2, sticky="ew")
 
         p_row2 = ctk.CTkFrame(preset_box, fg_color="transparent")
         p_row2.pack(fill="x", pady=2)
@@ -1214,6 +1227,7 @@ class ADBControllerApp(ctk.CTk):
             "KEY_UP": "# 键盘方向键-上\nKEY UP\nDELAY 200\n",
             "KEY_DOWN": "# 键盘方向键-下\nKEY DOWN\nDELAY 200\n",
             "KEY_ENTER": "# 键盘回车确认\nKEY ENTER\nDELAY 500\n",
+            "KEY_SPACE": "# 键盘空格键\nKEY SPACE\nDELAY 300\n",
             "KEY_TAB": "# 键盘Tab切换焦点\nKEY TAB\nDELAY 300\n",
             "SCROLL_UP": "# 向上轻微滚屏\nMOUSE_SCROLL 1\nDELAY 300\n",
             "SCROLL_DOWN": "# 向下轻微滚屏\nMOUSE_SCROLL -1\nDELAY 300\n",
