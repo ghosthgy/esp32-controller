@@ -81,8 +81,8 @@
 #### 方式 A：直接运行 Python 源码
 ```bash
 # 1. 克隆本仓库
-git clone https://github.com/your-username/esp32-c3-adb-controller.git
-cd esp32-c3-adb-controller
+git clone https://github.com/ghosthgy/esp32-controller.git
+cd esp32-controller
 
 # 2. 安装 Python 依赖
 pip install -r requirements.txt
